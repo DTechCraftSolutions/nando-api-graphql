@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: String!
+
+  """The name of the user"""
+  name: String!
+
+  """The email of the user"""
+  email: String!
+
+  """The plan of the user"""
+  planId: String!
+
+  """The recorrent of the user"""
+  recorrent: String!
+
+  """The payment of the user"""
+  payment: Boolean!
+}
+
+type Query {
+  findAll: [User!]!
+  findById(id: String!): User!
+}
+
+type Mutation {
+  deleteUser(id: String!): String!
+  registerUser(createUserInput: CreateUserInput!): User!
+}
+
+input CreateUserInput {
+  """The name of the user"""
+  name: String!
+
+  """The email of the user"""
+  email: String!
+
+  """The plan of the user"""
+  planId: String!
+
+  """The recorrent of the user"""
+  recorrent: String!
+
+  """The payment of the user"""
+  payment: Boolean!
+}
