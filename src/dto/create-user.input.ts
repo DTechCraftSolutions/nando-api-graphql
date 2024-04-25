@@ -16,4 +16,7 @@ export class CreateUserInput {
 
   @Field(() => Boolean, { description: 'The payment of the user' })
   payment: boolean;
+
+  @Field(() => String, { description: 'The phone of the user' })
+  phone: string;
 }

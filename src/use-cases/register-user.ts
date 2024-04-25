@@ -8,6 +8,7 @@ interface RegisterUserRequest {
   planId: string;
   recorrent: string;
   payment: boolean;
+  phone: string;
 }
 
 interface RegisterUserResponse {
@@ -24,6 +25,7 @@ export class RegisterUserUseCase {
     planId,
     recorrent,
     payment,
+    phone,
   }: RegisterUserRequest): Promise<RegisterUserResponse> {
     const user = await this.userRepository.create({
       email,
@@ -31,6 +33,7 @@ export class RegisterUserUseCase {
       planId,
       recorrent,
       payment,
+      phone,
     });
 
     return {

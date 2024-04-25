@@ -20,4 +20,5 @@ model User {
   planId    String
   recorrent String
   payment   Boolean
+  phone     String
 }
