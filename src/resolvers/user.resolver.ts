@@ -1,10 +1,12 @@
 import { Args, Mutation, Resolver, Query } from '@nestjs/graphql';
 import { CreateUserInput } from 'src/dto/create-user.input';
+import { UserUpdateInput } from 'src/dto/update-user.input';
 import { User } from 'src/entities/user.entity';
 import { DeleteUserUseCase } from 'src/use-cases/delete-user';
 import { FindAllUserUseCase } from 'src/use-cases/find-all-user';
 import { FindByIdUserUseCase } from 'src/use-cases/find-by-id-user';
 import { RegisterUserUseCase } from 'src/use-cases/register-user';
+import { UpdateUserUseCase } from 'src/use-cases/update-user';
 
 @Resolver(() => User)
 export class UserResolver {
@@ -13,6 +15,7 @@ export class UserResolver {
     private readonly findAllUsersUseCase: FindAllUserUseCase,
     private readonly findByIdUserUseCase: FindByIdUserUseCase,
     private readonly deleteUserUseCase: DeleteUserUseCase,
+    private readonly updateUserUseCase: UpdateUserUseCase,
   ) {}
 
   @Mutation(() => String)
@@ -26,6 +29,12 @@ export class UserResolver {
     @Args('createUserInput') createUserInput: CreateUserInput,
   ): Promise<User> {
     const { user } = await this.registerUserUseCase.execute(createUserInput);
+    return user;
+  }
+
+  @Mutation(() => User)
+  async updateUser(@Args('updateUserInput') updateUserInput: UserUpdateInput) {
+    const { user } = await this.updateUserUseCase.execute(updateUserInput);
     return user;
   }
 

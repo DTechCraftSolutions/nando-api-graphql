@@ -32,6 +32,7 @@ type Query {
 type Mutation {
   deleteUser(id: String!): String!
   registerUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UserUpdateInput!): User!
 }
 
 input CreateUserInput {
@@ -52,4 +53,25 @@ input CreateUserInput {
 
   """The phone of the user"""
   phone: String!
+}
+
+input UserUpdateInput {
+  """The name of the user"""
+  name: String
+
+  """The email of the user"""
+  email: String
+
+  """The plan of the user"""
+  planId: String
+
+  """The recorrent of the user"""
+  recorrent: String
+
+  """The payment of the user"""
+  payment: Boolean
+
+  """The phone of the user"""
+  phone: String
+  id: String!
 }

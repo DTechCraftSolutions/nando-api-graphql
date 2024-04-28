@@ -7,6 +7,14 @@ import { Injectable } from '@nestjs/common';
 export class UserPrismaRepository implements UserRepository {
   constructor(private prisma: PrismaService) {}
 
+  async update(id: string, data: Prisma.UserUpdateInput): Promise<User> {
+    return await this.prisma.user.update({
+      where: {
+        id,
+      },
+      data,
+    });
+  }
   async delete(id: string): Promise<User> {
     return await this.prisma.user.delete({
       where: {

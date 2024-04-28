@@ -6,6 +6,7 @@ import { UserPrismaRepository } from 'src/repositories/database/prisma/repositor
 import { FindAllUserUseCase } from 'src/use-cases/find-all-user';
 import { FindByIdUserUseCase } from 'src/use-cases/find-by-id-user';
 import { DeleteUserUseCase } from 'src/use-cases/delete-user';
+import { UpdateUserUseCase } from 'src/use-cases/update-user';
 
 @Module({
   providers: [
@@ -14,6 +15,7 @@ import { DeleteUserUseCase } from 'src/use-cases/delete-user';
     FindAllUserUseCase,
     FindByIdUserUseCase,
     DeleteUserUseCase,
+    UpdateUserUseCase,
     { provide: UserRepository, useClass: UserPrismaRepository },
   ],
 })
