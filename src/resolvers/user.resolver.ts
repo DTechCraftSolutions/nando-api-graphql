@@ -33,8 +33,13 @@ export class UserResolver {
   }
 
   @Mutation(() => User)
-  async updateUser(@Args('updateUserInput') updateUserInput: UserUpdateInput) {
-    const { user } = await this.updateUserUseCase.execute(updateUserInput);
+  async updateUser(
+    @Args('updateUserInput') updateUserInput: UserUpdateInput,
+  ): Promise<User> {
+    const { user } = await this.updateUserUseCase.execute({
+      id: updateUserInput.id,
+      updateUserInput,
+    });
     return user;
   }
 

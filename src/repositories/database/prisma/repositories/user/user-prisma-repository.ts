@@ -2,19 +2,12 @@ import { Prisma, User } from '@prisma/client';
 import { UserRepository } from 'src/repositories/user/user-repository';
 import { PrismaService } from '../../prisma.service';
 import { Injectable } from '@nestjs/common';
+import { UserUpdateInput } from 'src/dto/update-user.input';
 
 @Injectable()
 export class UserPrismaRepository implements UserRepository {
   constructor(private prisma: PrismaService) {}
 
-  async update(id: string, data: Prisma.UserUpdateInput): Promise<User> {
-    return await this.prisma.user.update({
-      where: {
-        id,
-      },
-      data,
-    });
-  }
   async delete(id: string): Promise<User> {
     return await this.prisma.user.delete({
       where: {
@@ -43,6 +36,26 @@ export class UserPrismaRepository implements UserRepository {
       where: {
         id,
       },
+    });
+  }
+
+  async updateUser(
+    id: string,
+    data: UserUpdateInput,
+  ): Promise<{
+    id: string;
+    name: string;
+    email: string;
+    planId: string;
+    recorrent: string;
+    payment: boolean;
+    phone: string;
+  }> {
+    return await this.prisma.user.update({
+      where: {
+        id,
+      },
+      data,
     });
   }
 }
