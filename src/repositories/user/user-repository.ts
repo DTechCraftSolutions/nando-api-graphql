@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Prisma, User } from '@prisma/client';
-import { UserUpdateInput } from 'src/dto/update-user.input';
+import { UserUpdateInput } from '../../dto/update-user.input';
 @Injectable()
 export abstract class UserRepository {
   abstract create(data: Prisma.UserCreateInput): Promise<User>;
