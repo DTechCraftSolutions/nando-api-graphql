@@ -27,6 +27,7 @@ type User {
 type Query {
   findAll: [User!]!
   findById(id: String!): User!
+  findByUserEmail(email: String!): User!
 }
 
 type Mutation {
