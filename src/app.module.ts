@@ -12,6 +12,7 @@ import { join } from 'path';
     DataModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
+      typePaths: ['./**/*.graphql'],
       autoSchemaFile: join(process.cwd(), './schema.gql'),
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
