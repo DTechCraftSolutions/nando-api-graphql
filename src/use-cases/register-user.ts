@@ -27,6 +27,12 @@ export class RegisterUserUseCase {
     payment,
     phone,
   }: RegisterUserRequest): Promise<RegisterUserResponse> {
+    const userExists = await this.userRepository.findByEmail(email);
+
+    if (userExists) {
+      throw new Error('User already exists');
+    }
+
     const user = await this.userRepository.create({
       email,
       name,
