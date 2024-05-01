@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserRepository } from 'src/repositories/user/user-repository';
+import { UserRepository } from '../repositories/user/user-repository';
 
 interface DeleteUserUseCaseRequest {
   id: string;

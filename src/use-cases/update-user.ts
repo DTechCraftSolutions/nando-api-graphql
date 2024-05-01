@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
-import { UserUpdateInput } from 'src/dto/update-user.input';
-import { UserRepository } from 'src/repositories/user/user-repository';
+import { UserUpdateInput } from '../dto/update-user.input';
+import { UserRepository } from '../repositories/user/user-repository';
 
 interface UpdateUserRequest {
   id: string;

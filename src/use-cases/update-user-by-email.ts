@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserUpdateInput } from 'src/dto/update-user.input';
-import { UserRepository } from 'src/repositories/user/user-repository';
+import { UserRepository } from '../repositories/user/user-repository';
 
 interface UpdateUserByEmailRequest {
   email: string;

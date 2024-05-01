@@ -1,13 +1,13 @@
 import { Args, Mutation, Resolver, Query } from '@nestjs/graphql';
-import { CreateUserInput } from 'src/dto/create-user.input';
-import { UserUpdateInput } from 'src/dto/update-user.input';
-import { User } from 'src/entities/user.entity';
-import { DeleteUserUseCase } from 'src/use-cases/delete-user';
-import { FindAllUserUseCase } from 'src/use-cases/find-all-user';
-import { FindByIdUserUseCase } from 'src/use-cases/find-by-id-user';
-import { FindByUserEmailUseCase } from 'src/use-cases/findByUserEmail';
-import { RegisterUserUseCase } from 'src/use-cases/register-user';
-import { UpdateUserUseCase } from 'src/use-cases/update-user';
+import { CreateUserInput } from '../dto/create-user.input';
+import { UserUpdateInput } from '../dto/update-user.input';
+import { User } from '../entities/user.entity';
+import { DeleteUserUseCase } from '../use-cases/delete-user';
+import { FindAllUserUseCase } from '../use-cases/find-all-user';
+import { FindByIdUserUseCase } from '../use-cases/find-by-id-user';
+import { FindByUserEmailUseCase } from '../use-cases/findByUserEmail';
+import { RegisterUserUseCase } from '../use-cases/register-user';
+import { UpdateUserUseCase } from '../use-cases/update-user';
 
 @Resolver(() => User)
 export class UserResolver {

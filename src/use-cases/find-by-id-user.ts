@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
-import { UserRepository } from 'src/repositories/user/user-repository';
+import { UserRepository } from '../repositories/user/user-repository';
 
 interface FindByIdUserRequest {
   id: string;
