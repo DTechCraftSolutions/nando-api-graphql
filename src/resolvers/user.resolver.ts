@@ -5,6 +5,7 @@ import { User } from 'src/entities/user.entity';
 import { DeleteUserUseCase } from 'src/use-cases/delete-user';
 import { FindAllUserUseCase } from 'src/use-cases/find-all-user';
 import { FindByIdUserUseCase } from 'src/use-cases/find-by-id-user';
+import { FindByUserEmailUseCase } from 'src/use-cases/findByUserEmail';
 import { RegisterUserUseCase } from 'src/use-cases/register-user';
 import { UpdateUserUseCase } from 'src/use-cases/update-user';
 
@@ -16,6 +17,7 @@ export class UserResolver {
     private readonly findByIdUserUseCase: FindByIdUserUseCase,
     private readonly deleteUserUseCase: DeleteUserUseCase,
     private readonly updateUserUseCase: UpdateUserUseCase,
+    private readonly findByUserEmailUseCase: FindByUserEmailUseCase,
   ) {}
 
   @Mutation(() => String)
@@ -51,6 +53,12 @@ export class UserResolver {
   @Query(() => User)
   async findById(@Args('id') id: string): Promise<User> {
     const { user } = await this.findByIdUserUseCase.execute({ id });
+    return user;
+  }
+
+  @Query(() => User)
+  async findByUserEmail(@Args('email') email: string): Promise<User> {
+    const { user } = await this.findByUserEmailUseCase.execute({ email });
     return user;
   }
 }

@@ -7,6 +7,9 @@ import { FindAllUserUseCase } from 'src/use-cases/find-all-user';
 import { FindByIdUserUseCase } from 'src/use-cases/find-by-id-user';
 import { DeleteUserUseCase } from 'src/use-cases/delete-user';
 import { UpdateUserUseCase } from 'src/use-cases/update-user';
+import { FindByUserEmailUseCase } from 'src/use-cases/findByUserEmail';
+import { UpdateUserByEmailUseCase } from 'src/use-cases/update-user-by-email';
+import { UserController } from 'src/controller/user.controller';
 
 @Module({
   providers: [
@@ -16,7 +19,10 @@ import { UpdateUserUseCase } from 'src/use-cases/update-user';
     FindByIdUserUseCase,
     DeleteUserUseCase,
     UpdateUserUseCase,
+    FindByUserEmailUseCase,
+    UpdateUserByEmailUseCase,
     { provide: UserRepository, useClass: UserPrismaRepository },
   ],
+  controllers: [UserController],
 })
 export class UserModule {}
