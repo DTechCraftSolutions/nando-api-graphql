@@ -1,10 +1,16 @@
-import { User } from '@prisma/client';
 import { UserRepository } from 'src/repositories/user/user-repository';
 
-interface UpdatePreaprovalUserRequest {}
-
-interface UpdatePreaprovalUserResponse {
-  user: User;
+interface UpdatePreaprovalUserRequest {
+  body: any;
 }
 
-export class UpdatePreaprovalUserUseCase {}
+interface UpdatePreaprovalUserResponse {}
+
+export class UpdatePreaprovalUserUseCase {
+  constructor(private userRepository: UserRepository) {}
+
+  async execute({ body }: UpdatePreaprovalUserRequest): Promise<any> {
+    const message = ` body: ${body} `;
+    return { message: message };
+  }
+}

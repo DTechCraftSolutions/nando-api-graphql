@@ -10,6 +10,7 @@ import { UpdateUserUseCase } from '../use-cases/update-user';
 import { FindByUserEmailUseCase } from '../use-cases/findByUserEmail';
 import { UpdateUserByEmailUseCase } from '../use-cases/update-user-by-email';
 import { UserController } from '../controller/user.controller';
+import { UpdatePreaprovalUserUseCase } from 'src/use-cases/update-preaproval-user';
 
 @Module({
   providers: [
@@ -21,6 +22,7 @@ import { UserController } from '../controller/user.controller';
     UpdateUserUseCase,
     FindByUserEmailUseCase,
     UpdateUserByEmailUseCase,
+    UpdatePreaprovalUserUseCase,
     { provide: UserRepository, useClass: UserPrismaRepository },
   ],
   controllers: [UserController],

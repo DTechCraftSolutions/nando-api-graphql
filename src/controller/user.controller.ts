@@ -1,17 +1,21 @@
-import { Body, Controller, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Param, Post } from '@nestjs/common';
 import { UpdateUserByEmailUseCase } from '../use-cases/update-user-by-email';
+import { UpdatePreaprovalUserUseCase } from 'src/use-cases/update-preaproval-user';
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly updateUserUseCase: UpdateUserByEmailUseCase) {}
+  constructor(
+    private readonly updateUserUseCase: UpdateUserByEmailUseCase,
+    private readonly updatePreapprovalUserUseCase: UpdatePreaprovalUserUseCase,
+  ) {}
 
   @Post(':email')
-  updateUser(@Param('email') email: string) {
-    return this.updateUserUseCase.execute({ email });
+  async updateUser(@Param('email') email: string) {
+    return await this.updateUserUseCase.execute({ email });
   }
 
-  @Post('update-preapproval/preapproval')
-  updatePreapprovalUser(@Body('body') body: any) {
-    return console.log(body);
+  @Post('update-preapproval')
+  async updatePreapprovalUser(@Body() body: any) {
+    return await this.updatePreapprovalUserUseCase.execute(body);
   }
 }
