@@ -1,6 +1,6 @@
 import { Body, Controller, Param, Post } from '@nestjs/common';
 import { UpdateUserByEmailUseCase } from '../use-cases/update-user-by-email';
-import { UpdatePreaprovalUserUseCase } from 'src/use-cases/update-preaproval-user';
+import { UpdatePreaprovalUserUseCase } from '../use-cases/update-preaproval-user';
 
 @Controller('users')
 export class UserController {
