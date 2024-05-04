@@ -9,10 +9,10 @@ export class UserController {
     private readonly updatePreapprovalUserUseCase: UpdatePreaprovalUserUseCase,
   ) {}
 
-  @Post(':email')
-  async updateUser(@Param('email') email: string) {
-    return await this.updateUserUseCase.execute({ email });
-  }
+  // @Post(':email')
+  // async updateUser(@Param('email') email: string) {
+  //   return await this.updateUserUseCase.execute({ email });
+  // }
 
   @Post('update-preapproval')
   async updatePreapprovalUser(@Body() body: any) {
