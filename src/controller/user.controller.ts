@@ -10,7 +10,7 @@ export class UserController {
     return this.updateUserUseCase.execute({ email });
   }
 
-  @Post('preapproval')
+  @Post('update-preapproval/preapproval')
   updatePreapprovalUser(@Body('body') body: any) {
     return console.log(body);
   }
